@@ -2,53 +2,52 @@
 #include<string>
 
 using namespace std;
-string findnext(string binary,long n)
-{   int i;
-	for( i=n-1;i>=0;i--)
+string next(string bin,long n)
+{   int j;
+	for( j=n-1;j>=0;j--)
 	{
-		if(binary[i]=='0')
+		if(bin[j]=='0')
 		break;
 		else
-		binary[i]='0';
+		bin[j]='0';
 	}
-	binary[i]='1';
-	return binary;
+	bin[j]='1';
+	return bin;
 }
 
-string findprev(string binary,long n)
-{	int i;
-	for( i=n-1;i>=0;i--)
+string prev(string bin,long n)
+{	int j;
+	for( j=n-1;j>=0;j--)
 	{
-		if(binary[i]=='1')
+		if(bin[j]=='1')
 		break;
 		else
-		binary[i]='1';
+		bin[j]='1';
 	}
-	binary[i]='0';
-	return binary;
+	bin[j]='0';
+	return bin;
 }
 
 
 int main()
 {
 	long n;
-	string binary;
+	string binstr;
 	cin>>n;
-	cin>>binary;
-	
-	int countone=0;
+	cin>>binstr;
+	int count_one=0;
 	for(int i=0;i<n;i++)
 	{
-		if(binary[i]=='1')
-		countone++;
+		if(binstr[i]=='1')
+		count_one++;
 	}
-	if(countone==n || countone==0)
+	if(count_one==n || count_one==0)
 	cout<<"-1";
 	else
 	{
-		string next=findnext(binary,n);
-		string prev=findprev(binary,n);
-		cout<<prev<<" "<<next;
+		string nxt=next(binstr,n);
+		string pre=prev(binstr,n);
+		cout<<pre<<" "<<nxt;
 	}
 	
 }
