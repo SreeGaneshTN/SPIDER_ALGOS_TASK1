@@ -28,8 +28,6 @@ int main()
 			else
 			r-=y;
 		}
-		else
-		continue;
 	}
 	if(r>temp)
 	{cout<<"promoted";
